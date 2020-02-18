@@ -19,9 +19,9 @@ record_info = {
     "PatientLastName": "Smith",
     "PatientFirstName": "John",
     "PatientMiddleNameInitial": "M",
-    "PatientDOBMonth": 9,
-    "PatientDOBDay": 13,
-    "PatientDOBYear": 91,
+    "PatientDOBMonth": "9",
+    "PatientDOBDay": "13",
+    "PatientDOBYear": "91",
     "PatientGenderM": "***",
     "PatientGenderF": "X",
     "InsuredsLastName": "Smith",
@@ -55,9 +55,9 @@ record_info = {
     "OtherHealthPlanYes": "***",
     "OtherHealthPlanNo": "***",
     "InsuredsPolicyGroupOrFECANo": "***",
-    "InsuredsDOBMonth": 9,
-    "InsuredsDOBDate": 13,
-    "InsuredsDOBYear": 91,
+    "InsuredsDOBMonth": "9",
+    "InsuredsDOBDate": "13",
+    "InsuredsDOBYear": "91",
     "OtherHealthBenefitPlanYes": "***",
     "OtherHealthBenefitPlanNo": "***",
     "SignatureOnFileYes": "X",
@@ -68,62 +68,75 @@ record_info = {
     "CurrentIllnessMonth": "***",
     "CurrentIllnessYear": "***",
     "ReferringProviderID": "***",
-    "ICDIndicator0=icd10": 0,
+    "ICDIndicator0=icd10": "0",
     "DiagnosisA": "F411",
     "DiagnosisB": "***",
     "DiagnosisC": "***",
     "DiagnosisD": "***",
     "DiagnosisE": "***",
-    "DateOfServiceFromMonth": 2,
-    "DateOfServiceFromDay": 18,
-    "DateOfServiceFromYear": 19,
-    "POS": 11,
+    "DateOfServiceFromMonth": "2",
+    "DateOfServiceFromDay": "18",
+    "DateOfServiceFromYear": "19",
+    "POS": "11",
     "EMG": "***",
-    "CPT/HCPS": 90834,
+    "CPT/HCPS": "90834",
     "ModifierA": "HH",
     "ModifierB": "***",
     "ModifierC": "***",
     "ModifierD": "***",
     "DiagnosisPointer": "A",
-    "Charges": 290,
-    "ChargesDecim": 0,
-    "GDaysOrUnits": 1,
+    "Charges": "290",
+    "ChargesDecim": "0",
+    "GDaysOrUnits": "1",
     "EPSDT": "***",
     "IQualifer": "***",
-    "RenderingProviderID": 1538252892,
-    "FederalTaxIDNumber": 711021176,
+    "RenderingProviderID": "1538252892",
+    "FederalTaxIDNumber": "711021176",
     "SSN": "***",
     "EIN": "X",
-    "PatientAccountNo": 1111111111,
+    "PatientAccountNo": "1111111111",
     "AcceptAssignmentAlways": "X",
-    "TotalCharge": 290,
+    "TotalCharge": "290",
     "TotalChargeDecim": "***",
-    "AmountPaid": 0,
+    "AmountPaid": "0",
     "AmountPaidDecim": "25",
     "ServiceFacultyName": "AAP",
     "ServiceFacultyAddress": "2001 S Barrington Ave Suite 301",
     "ServiceFacultyCity": "Los Angeles",
     "ServiceFacultyState": "CA",
-    "ServiceFacultyZip": 90025,
-    "FacilityProviderNPI": 1497893291,
+    "ServiceFacultyZip": "90025",
+    "FacilityProviderNPI": "1497893291",
     "FaciltyProviderOtherID": "***",
     "BillingProviderFullName": "AAP",
     "BillingProviderAddress": "2001 S Barrington Ave Suite 301",
     "BillingProviderCity": "Los Angeles",
     "BillingProviderState": "CA",
-    "BillingProviderZip": 90025,
-    "BillingProviderPhoneAreaCode": 310,
-    "BillingProviderPhoneNumber": 3232717796,
-    "BillingProviderNPI": 1497893291,
+    "BillingProviderZip": "90025",
+    "BillingProviderPhoneAreaCode": "310",
+    "BillingProviderPhoneNumber": "3232717796",
+    "BillingProviderNPI": "1497893291",
     "BillingProviderOtherID": "***",
-    "RenderingNPI": 1538252812
+    "RenderingNPI": "1538252812"
 }
+
+
+def createEDI(record_info):  # function to convert record into EDI claim
+    # match each part of the record with its respective EDI claim counterpart
+    edi_claim = {
+        "BillingProviderFullName": record_info["BillingProviderFullName"],
+        "BillingProviderAddress": record_info["BillingProviderAddress"],
+        "BillingProviderPhone": "+" + record_info["BillingProviderPhoneAreaCode"] + record_info["BillingProviderPhoneNumber"]}
+
+    return edi_claim
+
 
 # define data into a dictionary
 # have different disctionaries for different sections
-edi_format = {}  # this will contain the full edi form
+edi_format = createEDI(record_info)  # this will contain the full edi form
 billing_provider = {}  # information about billing provider
 subscriber_info = {}  # information about the subscriber
 client_info = {}  # will contain data if its different from subscriber_info
 claim_info = {}  # claim information
 service_line_info = {}  # service line information
+
+print(edi_format)
