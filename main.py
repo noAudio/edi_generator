@@ -122,21 +122,21 @@ record_info = {
 
 def createEDI(record_info):  # function to convert record into EDI claim
     # match each part of the record with its respective EDI claim counterpart
-    edi_claim = {
+    edi_format = {
         "BillingProviderFullName": record_info["BillingProviderFullName"],
         "BillingProviderAddress": record_info["BillingProviderAddress"],
         "BillingProviderPhone": "+" + record_info["BillingProviderPhoneAreaCode"] + record_info["BillingProviderPhoneNumber"]}
 
-    return edi_claim
+    return edi_format
 
 
 # define data into a dictionary
 # have different disctionaries for different sections
-edi_format = createEDI(record_info)  # this will contain the full edi form
+edi_claim = createEDI(record_info)  # this will contain the full edi form
 billing_provider = {}  # information about billing provider
 subscriber_info = {}  # information about the subscriber
 client_info = {}  # will contain data if its different from subscriber_info
 claim_info = {}  # claim information
 service_line_info = {}  # service line information
 
-print(edi_format)
+print(edi_claim)
