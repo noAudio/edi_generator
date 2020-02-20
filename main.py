@@ -123,9 +123,47 @@ record_info = {
 def createEDI(record_info):  # function to convert record into EDI claim
     # match each part of the record with its respective EDI claim counterpart
     edi_format = {
-        "BillingProviderFullName": record_info["BillingProviderFullName"],
-        "BillingProviderAddress": record_info["BillingProviderAddress"],
-        "BillingProviderPhone": "+" + record_info["BillingProviderPhoneAreaCode"] + record_info["BillingProviderPhoneNumber"]}
+        "TitleOne": "",
+        "TitleTwo": "",
+        "ClaimCreatorInfo": "",
+        "InformationContact": "",
+        "ClaimReceiver": "",
+        "ClaimReceiverCont": "",
+        "Hierarchy/1/20/1": "",
+        "BillProviderInfo": "",
+        "BillProviderInfoCont": "",
+        "BPStreetAddress": "",
+        "BPCityStateAndZip": "",
+        "BPReference": "",
+        "InformationContact2": "",
+        "NM1/87/2": "",
+        "StreetAddress": "",
+        "CityStateAndZipCode": "",
+        "Hierarchy/2/1/22/0": "",
+        "Subscriber": "",
+        "NM1/IL/1": "",
+        "StreetAddress": "",
+        "CityStateAndZip": "",
+        "Demographic": "",
+        "ProviderInfo": "",
+        "ProviderStreetAddress": "",
+        "ProviderCityStateAndZip": "",
+        "ClaimInfo": "",
+        "ClaimDate": "",
+        "ClaimReference": "",
+        "HI": "",
+        "ReferringProvider": "",
+        "RenderingProviderInfo": "",
+        "ProviderInfo2": "",
+        "ServiceLocation": "",
+        "ServiceLocationStreetAddress": "",
+        "ServiceLocationCityStateAndZip": "",
+        "Line/LX1": "",
+        "Service/SV1": "",
+        "ServiceDate": "",
+        "ServiceReference": "",
+        "ServiceSE": ""
+    }
 
     return edi_format
 
