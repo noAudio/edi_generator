@@ -159,13 +159,13 @@ for row in worksheet['A']:
     edi_claim = {
         # Loop  2000A Section
         "Loop2000A/BillingProvider/Hierarchy/1/20/1": "HL*1*20*1~",
-        "Loop2000A/BillingProvider/Name": "NM1*85*2*" + another_test_dict["BillingProviderFullName"],
-        "Loop2000A/BillingProvider/InfoCont": "CLINIC*****XX*" + another_test_dict["BillingProviderNPI"] + "~",
-        "Loop2000A/BillingProvider/StreetAddress": "N3*" + another_test_dict["BillingProviderAddress"] + "~",
-        "Loop2000A/BillingProvider/CityStateAndZip": "N4*" + another_test_dict["BillingProviderCity"] + "*" + another_test_dict["BillingProviderState"] + "*" + another_test_dict["BillingProviderZip"] + "~",
-        "Loop2000A/BillingProvider/Reference/TaxID/EIN": "REF*EI*" + another_test_dict["FederalTaxIDNumber"] + "~",
-        "Loop2000A/BillingProvider/InformationContact": "PERC*IC*" + another_test_dict["PatientLastName"] + "*TE*" + another_test_dict["BillingProviderPhoneNumber"] + "~",
-        "Loop2000A/BillingProvider/NM1/87/2": "NM1*87*2*~",
-        "Loop2000A/BillingProvider/StreetAddress": "N3*" + another_test_dict["BillingProviderAddress"] + "~",
-        "Loop2000A/BillingProvider/CityStateAndZipCode": "N4*" + another_test_dict["BillingProviderCity"] + "*" + another_test_dict["BillingProviderState"] + "*" + another_test_dict["BillingProviderZip"] + "~"
+        "Loop2010AA/BillingProvider/Name": "NM1*85*2*" + another_test_dict["BillingProviderFullName"],
+        "Loop2010AA/BillingProvider/InfoCont": "CLINIC*****XX*" + another_test_dict["BillingProviderNPI"] + "~",
+        "Loop2010AA/BillingProvider/StreetAddress": "N3*" + another_test_dict["BillingProviderAddress"] + "~",
+        "Loop2010AA/BillingProvider/CityStateAndZip": "N4*" + another_test_dict["BillingProviderCity"] + "*" + another_test_dict["BillingProviderState"] + "*" + another_test_dict["BillingProviderZip"] + "~",
+        "Loop2010AA/BillingProvider/Reference/TaxID/EIN": "REF*EI*" + another_test_dict["FederalTaxIDNumber"] + "~",
+        "Loop2010AA/BillingProvider/InformationContact": "PERC*IC*" + another_test_dict["PatientLastName"] + "*TE*" + another_test_dict["BillingProviderPhoneNumber"] + "~",
+        "Loop2010AB/BillingProvider/NM1/87/2": "NM1*87*2*~",
+        "Loop2010AB/BillingProvider/StreetAddress": "N3*" + another_test_dict["BillingProviderAddress"] + "~",
+        "Loop2010AB/BillingProvider/CityStateAndZipCode": "N4*" + another_test_dict["BillingProviderCity"] + "*" + another_test_dict["BillingProviderState"] + "*" + another_test_dict["BillingProviderZip"] + "~"
     }
