@@ -1,3 +1,10 @@
 env/
 .vscode/settings.json
 ~$records.xlsx
+publish/DrLitovs837pGenerator.application
+publish/setup.exe
+publish/Application Files/DrLitovs837pGenerator_1_0_0_0/DrLitovs837pGenerator.application
+publish/Application Files/DrLitovs837pGenerator_1_0_0_0/DrLitovs837pGenerator.exe.config.deploy
+publish/Application Files/DrLitovs837pGenerator_1_0_0_0/DrLitovs837pGenerator.exe.deploy
+publish/Application Files/DrLitovs837pGenerator_1_0_0_0/DrLitovs837pGenerator.exe.manifest
+publish.zip
