@@ -143,7 +143,7 @@ for row in worksheet['A']:
         "ServiceFacultyState": worksheet['CX{}'.format(number_of_rows)].value,
         "ServiceFacultyZip": worksheet['CY{}'.format(number_of_rows)].value,
         "FacilityProviderNPI": worksheet['CZ{}'.format(number_of_rows)].value,
-        "FaciltyProviderOtherID": worksheet['DA{}'.format(number_of_rows)].value,
+        "FacilityProviderOtherID": worksheet['DA{}'.format(number_of_rows)].value,
         "BillingProviderFullName": worksheet['DB{}'.format(number_of_rows)].value,
         "BillingProviderAddress": worksheet['DC{}'.format(number_of_rows)].value,
         "BillingProviderCity": worksheet['DD{}'.format(number_of_rows)].value,
@@ -158,6 +158,12 @@ for row in worksheet['A']:
     # record_id = worksheet['A{}'.format(number_of_rows)].value
     # payer_name = worksheet['B{}'.format(number_of_rows)].value
     number_of_rows = number_of_rows - 1
+    print(another_test_dict['PayerZip'])
+    print(another_test_dict['Medicare'])
+    print(another_test_dict['AmountPaid'])
+    print(another_test_dict['FacilityProviderOtherID'])
+    print(another_test_dict['Date'])
+    print('\n')
     # textfile = open('test.txt', 'a')
     # textfile.write(str(another_test_dict['RecordID']) + '\n')
     # textfile.write(str(another_test_dict['PayerName']) + '\n')
