@@ -106,7 +106,7 @@ record_info = {
     "ServiceFacultyState": "CA",
     "ServiceFacultyZip": "90025",
     "FacilityProviderNPI": "1497893291",
-    "FaciltyProviderOtherID": "",
+    "FacilityProviderOtherID": "",
     "BillingProviderFullName": "AAP",
     "BillingProviderAddress": "2001 S Barrington Ave Suite 301",
     "BillingProviderCity": "Los Angeles",
