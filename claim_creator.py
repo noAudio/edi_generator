@@ -11,6 +11,9 @@ def claim_generator(excelpath, ouputfolder, launchfolder):
 
     # get the number of records inside the excel file
     number_of_rows = worksheet.max_row
+    # make sure only 5 records are being read
+    if number_of_rows > 5:
+        number_of_rows = 5
     print('Found ' + str(number_of_rows - 1) + ' record(s).' + '\n')
 
     for row in worksheet['A']:
@@ -175,5 +178,3 @@ def claim_generator(excelpath, ouputfolder, launchfolder):
                 edi_claim['Loop2010AB/BillingProvider/CityStateAndZipCode'] + '\n')
             textfile.write('\n')
             textfile.close()
-
-    # launch folder if the file is created
