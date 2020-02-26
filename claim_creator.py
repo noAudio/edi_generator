@@ -6,7 +6,6 @@ def claim_generator(excelpath, ouputfolder, launchfolder):
     # pass the excel file to a variable using openpyxl
     if excelpath == "" or excelpath == " ":
         excelpath = 'records.xlsx'
-        pass
     records = openpyxl.load_workbook(excelpath)
     worksheet = records.get_sheet_by_name('Sheet1')
 

@@ -9,8 +9,6 @@ import sys
 
 
 class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
-    launchFolder = False
-
     def __init__(self, *args, obj=None, **kwargs):
         super(MainWindow, self).__init__(*args, **kwargs)
         # draw the ui
@@ -18,13 +16,17 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # browse for file and folder location
         self.btnAddFileLocation.clicked.connect(self.pickFile)
         self.btnOutputFolder.clicked.connect(self.pickFolder)
-        launchFolder = self.chkOpenOuputFolder.clicked.connect(
+        self.launchFolder = self.chkOpenOuputFolder.clicked.connect(
             self.launchFolderWhenComplete)
         # assign path to excel file and path to output folder
         #  to variables
-        excelpath = self.txtExcelLocation.text()
-        outputfolder = self.txtOutputLocation.text()
-        # run the claim generation script
+        self.excelpath = self.txtExcelLocation.text()
+        self.outputfolder = self.txtOutputLocation.text()
+        # run the claim generation script while passing in the
+        # paths to the file and output folder and whether to
+        # launch the output folder when done
+        self.btnGenerateClaims.clicked.connect(
+            self.runClaimGenerator)
 
     def pickFile(self):
         # launch the native file picker dialog
@@ -57,6 +59,10 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             launchfolder = False
             print(launchfolder)
         return launchfolder
+
+    def runClaimGenerator(self):
+        claim_creator.claim_generator(
+            self.excelpath, self.outputfolder, self.launchFolder)
 
 
 app = QtWidgets.QApplication(sys.argv)
