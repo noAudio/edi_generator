@@ -1,9 +1,13 @@
 import openpyxl
 
 
-def claim_generator():  # wrap the logic in a function to be called from the main file
+# wrap the logic in a function to be called from the main file
+def claim_generator(excelpath, ouputfolder, launchfolder):
     # pass the excel file to a variable using openpyxl
-    records = openpyxl.load_workbook('records.xlsx')
+    if excelpath == "" or excelpath == " ":
+        excelpath = 'records.xlsx'
+        pass
+    records = openpyxl.load_workbook(excelpath)
     worksheet = records.get_sheet_by_name('Sheet1')
 
     # get the number of records inside the excel file
