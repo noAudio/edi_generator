@@ -13,9 +13,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def __init__(self, *args, obj=None, **kwargs):
         super(MainWindow, self).__init__(*args, **kwargs)
+        # draw the ui
         self.setupUi(self)
-        # run the claim generation script
-
         # browse for file and folder location
         self.btnAddFileLocation.clicked.connect(self.pickFile)
         self.btnOutputFolder.clicked.connect(self.pickFolder)
@@ -25,17 +24,25 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         #  to variables
         excelpath = self.txtExcelLocation.text()
         outputfolder = self.txtOutputLocation.text()
+        # run the claim generation script
 
     def pickFile(self):
+        # launch the native file picker dialog
         fileName, _ = QFileDialog.getOpenFileName(
             self, 'QFileDialog.getOpenFileName()', '', 'All Files (*);;Excel Files (*.xlsx)')
+        # set the value of the textbox near the browse file
+        # button to the user selected file
         self.txtExcelLocation.setText(fileName)
         if fileName:
             print(fileName)
 
     def pickFolder(self):
+        # launch the native file picker dialog and set it
+        # to only query directory paths
         folderName = str(QFileDialog.getExistingDirectory(
             self, "Select Directory"))
+        # set the value of the textbox near the browse folder
+        # button to the user selected path
         self.txtOutputLocation.setText(folderName)
         if folderName:
             print(folderName)
@@ -49,7 +56,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         else:
             launchfolder = False
             print(launchfolder)
-
         return launchfolder
 
 
