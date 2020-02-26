@@ -16,15 +16,10 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # browse for file and folder location
         self.btnAddFileLocation.clicked.connect(self.pickFile)
         self.btnOutputFolder.clicked.connect(self.pickFolder)
+        # check if launch output folder was clicked
         self.launchFolder = self.chkOpenOuputFolder.clicked.connect(
             self.launchFolderWhenComplete)
-        # assign path to excel file and path to output folder
-        #  to variables
-        self.excelpath = self.txtExcelLocation.text()
-        self.outputfolder = self.txtOutputLocation.text()
-        # run the claim generation script while passing in the
-        # paths to the file and output folder and whether to
-        # launch the output folder when done
+        # run the claim generation script
         self.btnGenerateClaims.clicked.connect(
             self.runClaimGenerator)
 
@@ -50,7 +45,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             print(folderName)
 
     def launchFolderWhenComplete(self):
-        launchfolder = 'Unassigned'
       # check whether to launch folder after claim generation
         if self.chkOpenOuputFolder.isChecked():
             launchfolder = True
@@ -61,6 +55,11 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         return launchfolder
 
     def runClaimGenerator(self):
+        # assign path to excel file and path to output folder
+        # to variables
+        self.excelpath = self.txtExcelLocation.text()
+        self.outputfolder = self.txtOutputLocation.text()
+        # run the claim generator
         claim_creator.claim_generator(
             self.excelpath, self.outputfolder, self.launchFolder)
 

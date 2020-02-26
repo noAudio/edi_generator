@@ -4,8 +4,8 @@ import openpyxl
 # wrap the logic in a function to be called from the main file
 def claim_generator(excelpath, ouputfolder, launchfolder):
     # pass the excel file to a variable using openpyxl
-    if excelpath == "" or excelpath == " ":
-        excelpath = 'records.xlsx'
+    # if excelpath == "" or excelpath == " ":
+    #     excelpath = 'records.xlsx'
     records = openpyxl.load_workbook(excelpath)
     worksheet = records.get_sheet_by_name('Sheet1')
 
@@ -148,10 +148,12 @@ def claim_generator(excelpath, ouputfolder, launchfolder):
             'Loop2010AB/BillingProvider/StreetAddress': 'N3*' + records['BillingProviderAddress'] + '~',
             'Loop2010AB/BillingProvider/CityStateAndZipCode': 'N4*' + records['BillingProviderCity'] + '*' + records['BillingProviderState'] + '*' + records['BillingProviderZip'] + '~'
         }
-        # write the claim to a file while checking its not the headers row
+
         if records['PayerName'] != 'Payer Name':
-            textfile = open('{} {} CLAIM.edi'.format(
-                records['PayerName'], records['PayerID']), 'a')
+            # write claims to file
+            textfile = open('{}/{} {} CLAIM.edi'.format(ouputfolder,
+                                                        records['PayerName'],
+                                                        records['PayerID']), 'a')
             textfile.write(
                 edi_claim['Loop2000A/BillingProvider/Hierarchy/1/20/1'] + '\n')
             textfile.write(edi_claim['Loop2010AA/BillingProvider/Name'] + '\n')
@@ -171,4 +173,7 @@ def claim_generator(excelpath, ouputfolder, launchfolder):
                 edi_claim['Loop2010AB/BillingProvider/StreetAddress'] + '\n')
             textfile.write(
                 edi_claim['Loop2010AB/BillingProvider/CityStateAndZipCode'] + '\n')
+            textfile.write('\n')
             textfile.close()
+
+    # launch folder if the file is created
