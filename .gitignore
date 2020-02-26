@@ -14,3 +14,9 @@ __pycache__/
 ui/
 ui/mainwindow.ui
 ui/mainwindow.ui
+build/
+dist/
+main.spec
+src/claim_creator.py
+src/main.py
+src/MainWindow.py
